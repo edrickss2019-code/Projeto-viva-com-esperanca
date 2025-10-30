@@ -23,8 +23,9 @@ body {
 
 /* Ajuste do tamanho do logo */
 .logo2 {
-  width: 50px;         /* você pode alterar para 40px, 60px, etc. */
+  width: 25px;         /* você pode alterar para 40px, 60px, etc. */
   height: auto;
   display: inline-block;
   object-fit: contain;
 }
+
