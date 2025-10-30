@@ -105,13 +105,13 @@ Esta entrega final consolida o projeto, aplicando **boas práticas profissionais
 
 ## 👨‍💻 Autor
 **Edrick Silva**  
-Projeto desenvolvido para fins acadêmicos — *Disciplina de Desenvolvimento Web.*
+Projeto desenvolvido para fins acadêmicos — *Disciplina de Desenvolvimento Front-End Para Web.*
 
 ---
 
 ## 🏫 Instituição
 **Faculdade Cruzeiro do Sul Virtual**  
-Curso: *Desenvolvimento Front-End Para Web*    
+Curso: *Análise e Desenvolvimento de Sistemas*    
 
 ---
 
