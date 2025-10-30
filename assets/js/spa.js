@@ -3,15 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const links = document.querySelectorAll("nav a");
   const main = document.querySelector("main");
 
-  links.forEach(link => {
-    link.addEventListener("click", e => {
-      e.preventDefault();
-      const pagina = e.target.getAttribute("href");
-      carregarPagina(pagina);
-      window.history.pushState({}, "", pagina);
-    });
-  });
-
+  // Função principal para trocar o conteúdo
   async function carregarPagina(pagina) {
     try {
       const resposta = await fetch(pagina);
@@ -25,7 +17,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  window.addEventListener("popstate", () => {
-    carregarPagina(location.pathname);
+  // Navegação via clique nos links do menu
+  links.forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const pagina = e.target.getAttribute("href");
+      carregarPagina(pagina);
+      window.history.pushState({}, "", pagina);
+    });
   });
+
+  // Suporte ao botão voltar/avançar do navegador
+  window.addEventListener("popstate", () => {
+    const paginaAtual = location.pathname.split("/").pop() || "index.html";
+    carregarPagina(paginaAtual);
+  });
+
+  // 🚀 NOVO: Ao abrir o site, carrega somente o index.html (não os projetos)
+  const paginaInicial = location.pathname.split("/").pop() || "index.html";
+  if (paginaInicial !== "index.html") {
+    carregarPagina(paginaInicial);
+  }
 });
