@@ -1,9 +1,11 @@
 // spa.js
 document.addEventListener("DOMContentLoaded", () => {
+  // 🔹 Sempre começa no index.html
+  window.history.replaceState({}, "", "index.html");
+
   const links = document.querySelectorAll("nav a");
   const main = document.querySelector("main");
 
-  // Função principal para trocar o conteúdo
   async function carregarPagina(pagina) {
     try {
       const resposta = await fetch(pagina);
@@ -17,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Navegação via clique nos links do menu
+  // 🔹 Troca de conteúdo ao clicar no menu
   links.forEach(link => {
     link.addEventListener("click", e => {
       e.preventDefault();
@@ -27,15 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Suporte ao botão voltar/avançar do navegador
+  // 🔹 Suporte aos botões de voltar/avançar
   window.addEventListener("popstate", () => {
     const paginaAtual = location.pathname.split("/").pop() || "index.html";
     carregarPagina(paginaAtual);
   });
-
-  // 🚀 NOVO: Ao abrir o site, carrega somente o index.html (não os projetos)
-  const paginaInicial = location.pathname.split("/").pop() || "index.html";
-  if (paginaInicial !== "index.html") {
-    carregarPagina(paginaInicial);
-  }
 });
