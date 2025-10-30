@@ -1,0 +1,227 @@
+/* base.css
+   Reset + Tipografia + Estilos globais
+   (depende das variáveis definidas em variables.css)
+*/
+
+/* -------------------------
+   RESET E NORMALIZAÇÃO
+---------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-body);
+  font-size: var(--fs-md);
+  line-height: var(--line-height-default);
+  color: var(--color-neutral-800);
+  background-color: var(--color-neutral-100);
+  min-height: 100vh;
+}
+
+/* -------------------------
+   TIPOGRAFIA GLOBAL
+---------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-display);
+  color: var(--color-neutral-900);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-2);
+}
+
+h1 { font-size: var(--fs-xxl); font-weight: var(--font-weight-bold); }
+h2 { font-size: var(--fs-xl); font-weight: var(--font-weight-bold); }
+h3 { font-size: var(--fs-lg); font-weight: var(--font-weight-medium); }
+h4 { font-size: var(--fs-md); font-weight: var(--font-weight-medium); }
+h5 { font-size: var(--fs-sm); font-weight: var(--font-weight-medium); }
+h6 { font-size: var(--fs-xs); font-weight: var(--font-weight-regular); }
+
+p {
+  margin-bottom: var(--space-2);
+  color: var(--color-neutral-800);
+}
+
+a {
+  color: var(--color-primary-500);
+  text-decoration: none;
+  transition: color var(--transition-default);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-primary-700);
+  text-decoration: underline;
+}
+
+ul, ol {
+  padding-left: var(--space-3);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* -------------------------
+   CONTAINERS E SEÇÕES
+---------------------------- */
+section {
+  margin-bottom: var(--space-5);
+}
+
+.container {
+  max-width: var(--container-max-width);
+  padding: 0 var(--space-2);
+  margin: 0 auto;
+}
+
+/* -------------------------
+   RODAPÉ E CABEÇALHO BÁSICOS
+---------------------------- */
+.site-header, .site-footer {
+  background-color: var(--color-primary-500);
+  color: var(--color-neutral-100);
+  padding: var(--space-2) 0;
+}
+
+.site-header a,
+.site-footer a {
+  color: var(--color-neutral-100);
+}
+
+.site-header nav ul {
+  display: flex;
+  gap: var(--space-2);
+  list-style: none;
+}
+
+.site-header nav a {
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-default);
+}
+
+.site-header nav a:hover {
+  background-color: var(--color-primary-700);
+}
+
+.site-footer p {
+  text-align: center;
+  font-size: var(--fs-sm);
+}
+
+/* -------------------------
+   UTILITÁRIOS
+---------------------------- */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-muted { color: var(--color-neutral-600); }
+
+.mt-2 { margin-top: var(--space-2); }
+.mb-2 { margin-bottom: var(--space-2); }
+.mb-4 { margin-bottom: var(--space-4); }
+
+.btn {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-weight-medium);
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-primary {
+  background-color: var(--color-primary-500);
+  color: var(--color-neutral-100);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-700);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary-500);
+  color: var(--color-neutral-100);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-secondary-700);
+}
+
+.btn-disabled,
+.btn:disabled {
+  background-color: var(--color-neutral-400);
+  color: var(--color-neutral-100);
+  cursor: not-allowed;
+}
+
+/* -------------------------
+   FORMULÁRIOS BÁSICOS
+---------------------------- */
+input, textarea, select {
+  border: 1px solid var(--color-neutral-400);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1);
+  width: 100%;
+  transition: border-color var(--transition-default);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--color-primary-500);
+  outline: var(--focus-ring);
+}
+
+/* Validação visual */
+input:invalid {
+  border-color: var(--color-danger);
+}
+
+/* -------------------------
+   ALERTAS BÁSICOS
+---------------------------- */
+.alert {
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-3);
+}
+
+.alert-success {
+  background-color: var(--color-secondary-100);
+  color: var(--color-secondary-700);
+}
+
+.alert-warning {
+  background-color: #fff7e6;
+  color: var(--color-warning);
+}
+
+.alert-danger {
+  background-color: #ffe6e6;
+  color: var(--color-danger);
+}
+
+.alert-info {
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-700);
+}

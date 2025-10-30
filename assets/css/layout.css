@@ -1,0 +1,217 @@
+/* layout.css
+   Estrutura do layout: grid 12 colunas, responsividade, navegação e hero section.
+   Depende das variáveis de variables.css e base.css.
+*/
+
+/* -------------------------
+   GRID GERAL
+---------------------------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  gap: var(--grid-gap);
+}
+
+/* Exemplo de uso:
+   <div class="grid">
+     <div class="col-6">coluna</div>
+   </div>
+*/
+[class^="col-"] {
+  min-width: 0;
+}
+.col-1 { grid-column: span 1; }
+.col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; }
+.col-4 { grid-column: span 4; }
+.col-5 { grid-column: span 5; }
+.col-6 { grid-column: span 6; }
+.col-7 { grid-column: span 7; }
+.col-8 { grid-column: span 8; }
+.col-9 { grid-column: span 9; }
+.col-10 { grid-column: span 10; }
+.col-11 { grid-column: span 11; }
+.col-12 { grid-column: span 12; }
+
+/* -------------------------
+   HEADER E NAVEGAÇÃO
+---------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--color-primary-500);
+  color: var(--color-neutral-100);
+  box-shadow: var(--shadow-1);
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+nav li {
+  position: relative;
+}
+
+nav a {
+  display: block;
+  padding: var(--space-1) var(--space-2);
+  color: var(--color-neutral-100);
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-default);
+}
+
+nav a:hover {
+  background-color: var(--color-primary-700);
+}
+
+/* Dropdown menu */
+nav ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--color-primary-700);
+  padding: var(--space-1) 0;
+  border-radius: var(--radius-sm);
+  min-width: 160px;
+}
+
+nav ul li:hover > ul {
+  display: block;
+}
+
+nav ul ul li {
+  width: 100%;
+}
+
+nav ul ul a {
+  padding: var(--space-1) var(--space-3);
+}
+
+/* -------------------------
+   MENU HAMBÚRGUER (mobile)
+---------------------------- */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--color-neutral-100);
+  border-radius: 2px;
+  transition: all var(--transition-fast);
+}
+
+/* estado ativo */
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* -------------------------
+   HERO SECTION
+---------------------------- */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.hero h1 {
+  font-size: var(--fs-xxl);
+  color: var(--color-primary-700);
+}
+
+.hero p {
+  font-size: var(--fs-lg);
+  color: var(--color-neutral-800);
+}
+
+/* -------------------------
+   FOOTER
+---------------------------- */
+.site-footer {
+  background-color: var(--color-primary-700);
+  color: var(--color-neutral-100);
+  text-align: center;
+  padding: var(--space-3);
+}
+
+/* -------------------------
+   RESPONSIVIDADE (5 breakpoints)
+---------------------------- */
+
+/* XS - até 480px */
+@media (max-width: 480px) {
+  nav ul {
+    flex-direction: column;
+    gap: var(--space-1);
+    display: none;
+  }
+
+  nav ul.open {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* SM - até 768px */
+@media (max-width: 768px) {
+  .col-6 { grid-column: span 12; }
+  .col-4 { grid-column: span 6; }
+  .col-3 { grid-column: span 6; }
+}
+
+/* MD - até 1024px */
+@media (max-width: 1024px) {
+  .col-3 { grid-column: span 4; }
+}
+
+/* LG - até 1280px */
+@media (max-width: 1280px) {
+  .col-2 { grid-column: span 3; }
+}
+
+/* XL - acima de 1280px */
+@media (min-width: 1281px) {
+  .container {
+    max-width: var(--container-max-width);
+  }
+}

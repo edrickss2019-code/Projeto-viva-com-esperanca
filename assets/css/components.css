@@ -1,0 +1,255 @@
+/* components.css
+   Componentes de interface:
+   - Cards, botões, formulários aprimorados, modais, toasts, badges/tags.
+   - Depende de variables.css e base.css.
+*/
+
+/* -------------------------
+   CARDS
+---------------------------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-3);
+}
+
+.card {
+  background-color: var(--color-neutral-100);
+  border: 1px solid var(--color-neutral-400);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-default);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-2);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-content {
+  padding: var(--space-3);
+}
+
+.card-content h3 {
+  font-size: var(--fs-lg);
+  margin-bottom: var(--space-2);
+}
+
+.card-content p {
+  color: var(--color-neutral-600);
+}
+
+/* -------------------------
+   BOTÕES (estados visuais)
+---------------------------- */
+.btn {
+  display: inline-block;
+  font-family: var(--font-family-display);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-fast);
+  text-align: center;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--color-primary-500);
+  color: var(--color-neutral-100);
+}
+.btn-primary:hover {
+  background-color: var(--color-primary-700);
+}
+.btn-primary:active {
+  transform: scale(0.98);
+}
+.btn-primary:disabled {
+  background-color: var(--color-neutral-400);
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary-500);
+  color: var(--color-neutral-100);
+}
+.btn-secondary:hover {
+  background-color: var(--color-secondary-700);
+}
+
+/* -------------------------
+   FORMULÁRIOS APRIMORADOS
+---------------------------- */
+.form-group {
+  margin-bottom: var(--space-3);
+}
+
+label {
+  display: block;
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-1);
+}
+
+input, textarea, select {
+  border: 1px solid var(--color-neutral-400);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1);
+  width: 100%;
+  transition: border-color var(--transition-default), box-shadow var(--transition-fast);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 2px rgba(0, 119, 204, 0.2);
+  outline: none;
+}
+
+input:invalid {
+  border-color: var(--color-danger);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+
+/* -------------------------
+   MODAL
+---------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay-50);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal {
+  background-color: var(--color-neutral-100);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-2);
+  padding: var(--space-4);
+  width: 90%;
+  max-width: 500px;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-header {
+  font-size: var(--fs-lg);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-2);
+}
+
+.modal-footer {
+  text-align: right;
+  margin-top: var(--space-3);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------------
+   TOASTS (notificações curtas)
+---------------------------- */
+.toast-container {
+  position: fixed;
+  bottom: var(--space-3);
+  right: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  z-index: 2000;
+}
+
+.toast {
+  background-color: var(--color-primary-500);
+  color: var(--color-neutral-100);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-2);
+  opacity: 0.95;
+  animation: slideUp 0.4s ease;
+}
+
+.toast-success {
+  background-color: var(--color-secondary-500);
+}
+.toast-error {
+  background-color: var(--color-danger);
+}
+.toast-warning {
+  background-color: var(--color-warning);
+  color: var(--color-neutral-900);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------------
+   BADGES / TAGS
+---------------------------- */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: var(--fs-xs);
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+}
+
+.badge-primary {
+  background-color: var(--color-primary-500);
+  color: var(--color-neutral-100);
+}
+.badge-secondary {
+  background-color: var(--color-secondary-500);
+  color: var(--color-neutral-100);
+}
+.badge-info {
+  background-color: var(--color-info);
+  color: var(--color-neutral-900);
+}
+.badge-warning {
+  background-color: var(--color-warning);
+  color: var(--color-neutral-900);
+}
+.badge-danger {
+  background-color: var(--color-danger);
+  color: var(--color-neutral-100);
+}
+
+/* -------------------------
+   RESPONSIVIDADE
+---------------------------- */
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .toast-container {
+    right: 50%;
+    transform: translateX(50%);
+  }
+}

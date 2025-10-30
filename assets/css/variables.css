@@ -1,0 +1,142 @@
+/* variables.css
+   Design System -- variáveis CSS customizadas
+   - Paleta: azul + verde (8 cores + semânticas)
+   - Tipografia: Poppins (display) + Roboto (texto)
+   - Espaçamentos modulares: 8,16,24,32,48,64
+   - Breakpoints (mínimo 5)
+   - Grid 12 colunas configurável
+*/
+
+/* IMPORTE DAS FONTS (ou adicione no <head> do HTML) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap');
+
+:root{
+  /* ---------------------------
+     PALETA (mínimo 8 cores)
+     --------------------------- */
+  /* Primárias (azul) */
+  --color-primary-50:  #eaf5ff;
+  --color-primary-100: #cfeeff;
+  --color-primary-300: #66bfff;
+  --color-primary-500: #0077cc; /* cor principal */
+  --color-primary-700: #005fa3;
+
+  /* Secundárias (verde) */
+  --color-secondary-100: #e6fbf0;
+  --color-secondary-500: #27ae60; /* cor secundária */
+  --color-secondary-700: #1f8a4a;
+
+  /* Neutras */
+  --color-neutral-100: #ffffff;
+  --color-neutral-200: #f7f8fa;
+  --color-neutral-400: #d6dbe6;
+  --color-neutral-600: #6b7280;
+  --color-neutral-800: #111827;
+  --color-neutral-900: #0b1020;
+
+  /* Semânticas adicionais */
+  --color-success: var(--color-secondary-500);
+  --color-warning: #f59e0b;
+  --color-danger: #e02424;
+  --color-info: var(--color-primary-300);
+
+  /* Transparências / overlays */
+  --overlay-50: rgba(11,16,32,0.5);
+
+  /* ---------------------------
+     TIPOGRAFIA
+     --------------------------- */
+  --font-family-display: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --font-family-body: 'Roboto', system-ui, -apple-system, "Segoe UI", Poppins, "Helvetica Neue", Arial;
+
+  /* tamanhos (mínimo 5 solicitados) */
+  --fs-xxl: 2.25rem; /* 36px (títulos principais) */
+  --fs-xl: 1.5rem;   /* 24px */
+  --fs-lg: 1.125rem; /* 18px */
+  --fs-md: 1rem;     /* 16px (base) */
+  --fs-sm: 0.875rem; /* 14px */
+  --fs-xs: 0.75rem;  /* 12px (suporte) */
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --line-height-tight: 1.15;
+  --line-height-default: 1.5;
+
+  /* ---------------------------
+     ESPAÇAMENTOS (sistema modular)
+     --------------------------- */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+
+  /* ---------------------------
+     LARGURAS E GRID
+     --------------------------- */
+  --container-max-width: 1200px;
+  --container-padding: var(--space-2);
+
+  --grid-columns: 12;
+  --grid-gap: 24px;           /* gap entre colunas */
+  --grid-gutter: var(--grid-gap);
+
+  /* calculáveis (úteis no CSS) */
+  --col-percent: calc(100% / var(--grid-columns)); /* 1 coluna em % */
+
+  /* ---------------------------
+     RADIUS / SOMBRAS / TRANSIÇÕES
+     --------------------------- */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --shadow-1: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15,23,42,0.04);
+  --shadow-2: 0 10px 30px rgba(11,16,32,0.08);
+
+  --transition-fast: 150ms ease;
+  --transition-default: 250ms cubic-bezier(.4,0,.2,1);
+
+  /* ---------------------------
+     BREAKPOINTS (mínimo 5)
+     --------------------------- */
+  --bp-xs: 320px;   /* phones very small */
+  --bp-sm: 480px;   /* phones */
+  --bp-md: 768px;   /* tablets */
+  --bp-lg: 1024px;  /* desktop */
+  --bp-xl: 1280px;  /* large screens */
+
+  /* ---------------------------
+     A11Y
+     --------------------------- */
+  --focus-ring: 3px solid rgba(0,119,204,0.18);
+}
+
+/* Helper classes (opcionais) */
+.container{
+  max-width: var(--container-max-width);
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Utility: visually-hidden */
+.u-visually-hidden{
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* Grid helpers: use com cautela; componentes terão regras próprias */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  gap: var(--grid-gap);
+}
+
+/* Nota: para calcular col spans: .col-6 { grid-column: span 6; } etc. */
