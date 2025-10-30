@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cadastro - Viva com Esperança</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Script de funcionalidade e validação -->
+  <script defer src="assets/js/script.js"></script>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <img src="assets/img/logo.png" alt="Logo do Projeto Viva com Esperança" class="logo">
+
+      <!-- Menu principal com ARIA -->
+      <nav aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="cadastro.html" class="active">Cadastro</a></li>
+        </ul>
+      </nav>
+
+      <!-- 🔆 Botões de acessibilidade -->
+      <div class="botoes-acessibilidade">
+        <button id="btn-escuro" aria-label="Ativar ou desativar modo escuro">🌙 Modo Escuro</button>
+        <button id="btn-contraste" aria-label="Ativar ou desativar alto contraste">🌓 Alto Contraste</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="container" role="main">
+    <h1>Cadastro de Voluntário</h1>
+    <form id="form-cadastro" novalidate aria-labelledby="titulo-form">
+      <fieldset>
+        <legend id="titulo-form">Dados Pessoais</legend>
+
+        <label for="nome">Nome completo</label>
+        <input id="nome" name="nome" type="text" required minlength="3" aria-required="true">
+
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" required aria-required="true">
+
+        <label for="cpf">CPF</label>
+        <input id="cpf" name="cpf" type="text" inputmode="numeric" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+               placeholder="000.000.000-00" required aria-required="true">
+
+        <label for="telefone">Telefone</label>
+        <input id="telefone" name="telefone" type="tel" inputmode="tel" required placeholder="(11) 91234-5678" aria-required="true">
+      </fieldset>
+
+      <fieldset>
+        <legend>Endereço</legend>
+
+        <label for="cep">CEP</label>
+        <input id="cep" name="cep" type="text" inputmode="numeric" pattern="\d{5}-\d{3}"
+               placeholder="00000-000" required aria-required="true">
+
+        <label for="endereco">Endereço</label>
+        <input id="endereco" name="endereco" type="text" required aria-required="true">
+
+        <label for="cidade">Cidade</label>
+        <input id="cidade" name="cidade" type="text" required aria-required="true">
+
+        <label for="estado">Estado</label>
+        <select id="estado" name="estado" required aria-required="true">
+          <option value="">Selecione</option>
+          <option value="SP">SP</option>
+          <option value="RJ">RJ</option>
+          <option value="MG">MG</option>
+        </select>
+      </fieldset>
+
+      <label>
+        <input type="checkbox" id="termos" required aria-required="true">
+        Concordo com os termos
+      </label>
+
+      <button type="submit" aria-label="Enviar formulário de cadastro">Enviar</button>
+    </form>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; <span id="ano"></span> Projeto Viva com Esperança</p>
+    </div>
+  </footer>
+
+  <!-- 🔧 Scripts principais -->
+  <script type="module" src="assets/js/spa.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
+  <script type="module" src="assets/js/validacaoForm.js"></script>
+  <script src="assets/js/acessibilidade.js"></script>
+
+  <script>
+    document.getElementById('ano').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
