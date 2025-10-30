@@ -26,14 +26,17 @@ O site foi construído e aprimorado em **quatro etapas**, evoluindo de uma estru
   - Cores, tipografia e espaçamento.
   - Ajuste dos tamanhos das imagens e cards de projeto.
 - Organização dos arquivos:
-
+```text
 assets/
 ├── css/
-│ └── style.css
+    ├── base.css
+    ├── components.css
+    ├── layout.css
+    ├── sytle.css
+    ├── variables.css
+├── js/
 └── img/
-├── logo.png
-└── projetos/
-
+```
 **
 ---
 
@@ -55,15 +58,17 @@ Nesta etapa, o site foi transformado em uma **aplicação dinâmica e interativa
 - Validação completa dos campos do formulário.
 - Exibição de mensagens de erro e alerta de sucesso ao usuário.
 
-#### 📁 Estrutura modular do JavaScript
 **
+#### 📁 Estrutura modular do JavaScript
 
+```text
 assets/
 └── js/
-├── spa.js # Carregamento dinâmico de páginas
-├── main.js # Geração dinâmica de cards
-├── validacaoForm.js # Validação de formulários
-└── acessibilidade.js # Modo escuro e alto contraste
+    ├── spa.js              # Carregamento dinâmico de páginas
+    ├── main.js             # Geração dinâmica de cards
+    ├── validacaoForm.js    # Validação de formulários
+    └── acessibilidade.js   # Modo escuro e alto contraste
+```
 
 
 ---
