@@ -30,6 +30,73 @@ body {
 }
 
 
+/* === AJUSTE DA IMAGEM DO INDEX (SEÇÃO HERO) === */
+.hero img {
+  width: 55%;           /* 🔹 diminui a imagem para 55% da largura do container */
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 12px;  /* 🔹 bordas suaves e modernas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* sombra sutil */
+}
+
+/* === AUMENTA TAMANHO DAS FONTES === */
+body {
+  font-size: 1.2rem;   /* 🔹 aumenta texto geral */
+  line-height: 1.6;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Títulos principais */
+h1, h2, h3 {
+  font-weight: 700;
+  color: var(--cor-principal);
+  text-align: center;
+  margin-top: 1.2em;
+  margin-bottom: 0.6em;
+}
+
+/* Tamanhos diferenciados por nível */
+h1 {
+  font-size: 2em;      /* Título principal (32px aprox.) */
+}
+h2 {
+  font-size: 1.6em;    /* Subtítulo */
+}
+h3 {
+  font-size: 1.3em;
+}
+
+/* Parágrafos */
+p {
+  font-size: 1.1em;
+  text-align: justify;
+  margin-bottom: 1em;
+}
+
+/* Menu de navegação */
+nav ul li a {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: var(--cor-principal);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #0d3e7e;
+}
+
+/* Rodapé */
+footer {
+  font-size: 1em;
+  text-align: center;
+  padding: 20px;
+  color: var(--cor-texto);
+  background-color: rgba(0, 0, 0, 0.03);
+  margin-top: 2em;
+}
+
 
 
 
